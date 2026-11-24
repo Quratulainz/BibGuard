@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BibGuard - Verify references, copy real citations</title>
+<meta name="description" content="Check BibTeX and reference lists against Crossref and OpenAlex. Catch fake, altered and retracted references. Copy citations in any style.">
+<link rel="stylesheet" href="/static/style.css?v=8">
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
+</head><body>
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<header class="nav"><div class="wrap">
+ <a class="logo" href="#top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5L15.5 9.5"/></svg>BibGuard</a>
+ <nav aria-label="Main"><a href="#tool">Tool</a><a href="#how">How it works</a><a id="beta-link" href="#beta-info">Free beta</a><a href="#pricing" data-credit-only hidden>Pricing</a><a href="#feedback">Feedback</a><a href="#faq">FAQ</a></nav>
+ <div class="navr"><span class="pill" id="who" role="status">...</span>
+  <button class="btn ghost sm" id="authbtn">Log in</button><button class="btn ghost sm" id="accbtn" hidden>Account</button></div>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+ <div>
+  <span class="eyebrow">Built for PhD students, researchers and analysts</span>
+  <h1>Is that reference <span class="grad">real</span>? Find out in seconds.</h1>
+  <p class="lead">Check reference metadata against Crossref and OpenAlex. Review possible mismatches, see available retraction flags, and copy citations in supported styles.</p>
+  <div class="cta"><a class="btn" href="#tool">Check my references</a><a class="btn ghost" href="#how">How it works</a></div>
+  <div class="stats"><div><b><span class="count" data-to="8">0</span>+</b><span>citation styles</span></div><div><b><span class="count" data-to="150">0</span></b><span>references per file</span></div><div><b><span class="count" data-to="2">0</span></b><span>open databases</span></div></div>
+ </div>
+ <div class="stack" aria-hidden="true">
+  <div class="sc"><span class="st o">VERIFIED</span><b>Deep learning</b><small>LeCun, Bengio, Hinton - Nature, 2015</small></div>
+  <div class="sc"><span class="st w">CHECK DETAILS</span><b>Year differs</b><small>Your file says 2019, record says 2021</small></div>
+  <div class="sc"><span class="st b">NOT FOUND</span><b>Quantum Banana Networks</b><small>No matching paper in any database</small></div>
+ </div>
+</div></section>
+
+<section class="slider rv"><div class="wrap">
+ <div class="sl" id="sl" aria-roledescription="carousel" aria-label="What BibGuard does">
+  <div class="track" id="track">
+   <article class="slide act"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5L15.5 9.5"/></svg></div>
+    <div><h3>Catch fake references</h3><p>Compare BibTeX metadata with registry records. Review plain-text or PDF matches before citing them.</p></div>
+    <div class="mini"><div>Smith 2020 - Verified</div><div>Doe 2021 - Not found</div><div>Lee 2019 - DOI belongs to another paper</div></div></article>
+   <article class="slide"><div class="ic"><svg viewBox="0 0 24 24"><path d="M7 7h10M13 3l4 4-4 4M17 17H7M11 13l-4 4 4 4"/></svg></div>
+    <div><h3>See what AI changed</h3><p>Upload your original and the AI-edited .bib. We list every changed author, year, title and DOI.</p></div>
+    <div class="mini"><div>year: <del>2018</del> <ins>2020</ins></div><div>author: <del>Khan, A</del> <ins>Kahn, A</ins></div><div>doi: <del>10.1/a</del> <ins>10.1/b</ins></div></div></article>
+   <article class="slide"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18h.01"/></svg></div>
+    <div><h3>Retraction alerts</h3><p>Do not cite withdrawn work by accident. Retracted papers get a red badge.</p></div>
+    <div class="mini"><div>Paper A - Verified</div><div>Paper B - <b style="color:var(--bad)">RETRACTED</b></div></div></article>
+   <article class="slide"><div class="ic"><svg viewBox="0 0 24 24"><path d="M7 7h4v4c0 3-1 5-4 6M15 7h4v4c0 3-1 5-4 6"/></svg></div>
+    <div><h3>Copy citations in any style</h3><p>IEEE, APA, Harvard, MLA, Chicago, Vancouver, BibTeX, RIS, or any CSL style such as Nature or ACM.</p></div>
+    <div class="mini"><div>[1] Y. LeCun et al., "Deep learning," Nature, 2015.</div><div>LeCun, Y. et al. (2015) Deep learning. Nature.</div></div></article>
+   <article class="slide"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-3 5 3-1.5-7.5"/></svg></div>
+    <div><h3>Optional Scopus badge</h3><p>When the site owner connects a Scopus key, each paper shows whether Scopus indexes it.</p></div>
+    <div class="mini"><div>Indexed in Scopus</div><div>Open paper link on every record</div></div></article>
+  </div>
+  <button class="sbtn l" id="sprev" aria-label="Previous slide">&#8249;</button><button class="sbtn r" id="snext" aria-label="Next slide">&#8250;</button>
+  <div class="dots" id="dots"></div>
+ </div>
+</div></section>
+
+<section id="tool"><div class="wrap">
+ <div class="card">
+  <div class="tabs" role="tablist">
+   <button class="tab" role="tab" aria-selected="true" id="t1">Check references</button>
+   <button class="tab" role="tab" aria-selected="false" id="t3">Find a paper</button>
+   <button class="tab" role="tab" aria-selected="false" id="t2">Find what AI changed</button>
+  </div>
+  <div class="prog" id="prog" hidden><i></i></div>
+
+  <div id="p1" class="pane">
+   <div class="drop" id="drop" tabindex="0" role="button">Drop up to 3 files here (.bib, .txt or a .pdf paper), or click to choose</div>
+   <input type="file" id="file" class="sr" accept=".bib,.txt,.bbl,.pdf" multiple>
+   <div class="files" id="flist"></div>
+   <textarea id="text" placeholder="Or paste BibTeX / a plain reference list here (one reference per line or blank-line separated)"></textarea>
+   <div class="row"><button class="go" id="run">Check references</button><span class="mute" id="quota">Up to 150 references per file. For a PDF we read its reference list.</span></div>
+   <div class="msg" id="m1" role="status"></div>
+  </div>
+
+  <div id="p3" class="pane" hidden>
+   <p class="mute" style="margin-top:0">Search by title, authors or DOI. Records come straight from Crossref (publisher-registered data) and OpenAlex. Citations are built from those records, never guessed.</p>
+   <input type="text" id="sq" placeholder="e.g. Attention is all you need, or 10.1038/nature14539">
+   <div class="row"><button class="go" id="run3">Search</button></div>
+   <div class="msg" id="m5" role="status"></div><div id="sout"></div>
+  </div>
+
+  <div id="p2" class="pane" hidden>
+   <p class="mute" style="margin-top:0">Upload your original .bib and the version after AI edited it. We list every field that changed.</p>
+   <label>Original .bib <input type="file" id="fa" accept=".bib"></label><br><br>
+   <label>AI-modified .bib <input type="file" id="fb" accept=".bib"></label>
+   <div class="row"><button class="go" id="run2">Compare files</button></div>
+   <div class="msg" id="m2" role="status"></div><div id="diffout"></div>
+  </div>
+ </div>
+ <div id="out"></div>
+</div></section>
+
+<section id="how"><div class="wrap">
+ <h2 class="rv">How it works</h2>
+ <div class="grid3" style="margin-top:26px">
+  <div class="card step rv"><span class="n">1</span><h3>Upload or paste</h3><p class="mute">A .bib file, a plain reference list, or the PDF of a paper.</p></div>
+  <div class="card step rv"><span class="n">2</span><h3>We check every entry</h3><p class="mute">Title, authors, year and DOI are compared with Crossref and OpenAlex. Retractions are flagged.</p></div>
+  <div class="card step rv"><span class="n">3</span><h3>Copy the real citation</h3><p class="mute">Open the paper, copy the citation in your style, or download corrected BibTeX and a separate review report.</p></div>
+ </div>
+</div></section>
+
+<section id="beta-info"><div class="wrap">
+ <h2>Free beta</h2><p class="mute">Check up to <span id="beta-limit">5</span> files per network per day. No account is needed.</p>
+</div></section>
+
+<section id="pricing" data-credit-only hidden><div class="wrap">
+ <h2 class="rv">Simple pricing</h2><p class="mute rv">One file is one .bib, .txt, .pdf or pasted list (up to 150 references).</p>
+ <div class="grid3" style="margin-top:24px">
+  <div class="card price rv"><h3>Guest</h3><div class="amt">Free</div><ul><li><span class="pguest">1</span> free check per day</li><li>All citation styles</li><li>No account needed</li></ul><a class="btn ghost" href="#tool">Try now</a></div>
+  <div class="card price rv"><h3>Free account</h3><div class="amt">Free</div><ul><li><span class="pfree">5</span> free files to start</li><li>Account and purchase history</li><li>Password reset by email</li></ul><button class="btn ghost" data-open="signup">Create account</button></div>
+  <div class="card price pop rv"><h3>Credit pack</h3><div class="amt" id="ppackp">$3</div><ul><li><span id="ppackf">30</span> more file checks</li><li>Credits never expire</li><li>One-time payment, no subscription</li></ul><button class="btn" data-buy>Buy credits</button></div>
+ </div>
+</div></section>
+
+<section id="feedback"><div class="wrap">
+ <div class="card rv">
+  <h2>Tell us what you think</h2>
+  <p class="mute" style="margin-top:0">Rate the tool, report a bug, suggest a feature, or contact us.</p>
+  <div class="stars" id="stars" role="radiogroup" aria-label="Rating"></div>
+  <select id="kind" aria-label="Message type"><option value="review">Review</option><option value="suggestion">Suggestion for a new feature</option><option value="bug">Bug report</option><option value="contact">Contact</option></select>
+  <textarea id="fmsg" maxlength="2000" placeholder="Your message"></textarea>
+  <input type="email" id="femail" placeholder="Email (optional, only if you want a reply)">
+  <div class="row"><button class="go" id="send">Send feedback</button></div>
+  <div class="msg" id="m3" role="status"></div>
+ </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+ <h2 class="rv">Questions</h2>
+ <details class="faq rv"><summary>Why was my real reference marked "Not found"?</summary><p>Books, theses and some conference papers are missing from Crossref and OpenAlex. "Not found" means check manually, not fake.</p></details>
+ <details class="faq rv"><summary>Is this the same as Scopus or Web of Science?</summary><p>No. BibGuard uses publisher-registered metadata from Crossref and OpenAlex. A Scopus badge appears only when the site owner has connected a Scopus key. Web of Science is not included.</p></details>
+ <details class="faq rv"><summary>What happens to my files?</summary><p>BibGuard reads files to extract references and sends lookup terms or identifiers to scholarly metadata services. Extracted references and check results are temporarily retained so your browser can retrieve them after a background check. BibGuard also stores usage records, account information, and any feedback you submit.</p></details>
+ <details class="faq rv"><summary>I forgot my password.</summary><p>Choose Log in, then "Forgot password?". We email you a link that works for one hour.</p></details>
+</div></section>
+</main>
+
+<footer><div class="wrap">BibGuard checks metadata in public databases. Publisher pages may offer open access or require a subscription. Always confirm important references with the original paper.</div></footer>
+
+<dialog id="authdlg"><button class="x" data-close aria-label="Close">&times;</button>
+ <h2 id="atitle">Welcome back</h2>
+ <div id="fEmail"><input type="email" id="aemail" placeholder="Email" autocomplete="email"></div>
+ <div id="fCode" hidden><p class="mute" id="codehelp" style="margin-top:0"></p><input type="text" id="acode" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="one-time-code" placeholder="0000" aria-label="4-digit code" style="letter-spacing:.6em;text-align:center;font-size:1.6rem"></div>
+ <div id="fPw"><input type="password" id="apw" placeholder="Password (8+ characters)" autocomplete="current-password"></div>
+ <div class="row"><button class="go" id="asubmit">Log in</button></div>
+ <div class="msg" id="m4" role="status"></div>
+ <div id="gwrap" hidden><div class="mute" style="text-align:center;margin:12px 0 8px">or</div><div id="gbtn" style="display:flex;justify-content:center"></div></div>
+ <div class="row mute"><button class="lnk" data-go="signup" data-show="login forgot">Create an account</button><button class="lnk" data-go="login" data-show="signup forgot reset">I already have an account</button><button class="lnk" data-go="forgot" data-show="login">Forgot password?</button><button class="lnk" id="resend" data-show="verify">Resend code</button><button class="lnk" data-go="signup" data-show="verify">Use another email</button></div>
+</dialog>
+
+<dialog id="accdlg"><button class="x" data-close aria-label="Close">&times;</button>
+ <h2>Your account</h2>
+ <div class="kv" id="acc"></div>
+ <div class="row"><button class="btn sm" data-buy data-credit-only hidden>Buy credits</button><button class="btn ghost sm" id="outbtn">Log out</button></div>
+ <div data-credit-only hidden><h3 style="margin-top:18px">Purchases</h3><div id="pays" class="mute">None yet.</div></div>
+ <h3 style="margin-top:18px">Change password</h3>
+ <input type="password" id="oldpw" placeholder="Current password" autocomplete="current-password">
+ <input type="password" id="newpw" placeholder="New password (8+ characters)" autocomplete="new-password">
+ <div class="row"><button class="btn ghost sm" id="chpw">Change password</button></div><div class="msg" id="m6" role="status"></div>
+</dialog>
+
+<dialog id="paydlg"><button class="x" data-close aria-label="Close">&times;</button>
+ <h2>Keep checking references</h2><p id="paymsg" class="mute"></p>
+ <p>Credit pack: <b><span id="payf">30</span> files</b> for <b id="payp">$3</b>. Credits never expire.</p>
+ <div class="row" id="provs"></div><div class="row"><button class="btn ghost" data-close>Not now</button></div>
+</dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<datalist id="cslnames"><option value="nature"><option value="science"><option value="cell"><option value="acm-sig-proceedings"><option value="elsevier-harvard"><option value="american-chemical-society"><option value="american-medical-association"><option value="springer-basic-author-date"><option value="chicago-fullnote-bibliography"><option value="ieee"><option value="apa"></datalist>
+<script src="/static/app.js?v=11"></script>
+</body></html>
